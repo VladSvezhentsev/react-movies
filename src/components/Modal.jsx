@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -8,6 +8,7 @@ import axios from "axios";
 import { img_500, unavailable, unavailableLandscape } from "../config/config";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import Carousel from "./Carousel";
+import { GlobalContext } from "../context/GlobalState";
 
 const style = {
    position: "absolute",
@@ -24,10 +25,18 @@ const style = {
    p: 4,
 };
 
-function ContentModal({ children, type, id }) {
+function ContentModal({ children, type, id, item }) {
    const [open, setOpen] = useState(false);
    const [content, setContent] = useState();
    const [video, setVideo] = useState();
+
+   const {
+      addMovieToWatchlist,
+      watchlist,
+      removeMovieFromWatchlist,
+      addMovieToWatched,
+   } = useContext(GlobalContext);
+   let storedMovie = watchlist.find((obj) => obj.id === id);
 
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -44,7 +53,7 @@ function ContentModal({ children, type, id }) {
       const { data } = await axios.get(
          `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
             process.env.REACT_APP_API_KEY
-         }&language=${"uk - UA" || "ru-Ru" || "en - US"}`
+         }&language=${"uk - UA" || "en - US"}`
       );
 
       setVideo(data.results[0]?.key);
@@ -75,24 +84,55 @@ function ContentModal({ children, type, id }) {
                <Box sx={style}>
                   {content && (
                      <div className="content-modal">
-                        <img
-                           className="content__portrait"
-                           src={
-                              content.poster_path
-                                 ? `${img_500}/${content.poster_path}`
-                                 : unavailable
-                           }
-                           alt="poster"
-                        />
-                        <img
-                           className="content__landscape"
-                           src={
-                              content.backdrop_path
-                                 ? `${img_500}/${content.backdrop_path}`
-                                 : unavailableLandscape
-                           }
-                           alt="poster"
-                        />
+                        <div className="content__image">
+                           <img
+                              className="content__portrait"
+                              src={
+                                 content.poster_path
+                                    ? `${img_500}/${content.poster_path}`
+                                    : unavailable
+                              }
+                              alt="poster"
+                           />
+                           <img
+                              className="content__landscape"
+                              src={
+                                 content.backdrop_path
+                                    ? `${img_500}/${content.backdrop_path}`
+                                    : unavailableLandscape
+                              }
+                              alt="poster"
+                           />
+                           {storedMovie ? (
+                              <div className="content__btns">
+                                 <Button
+                                    onClick={() =>
+                                       removeMovieFromWatchlist(item.id)
+                                    }
+                                    variant="contained"
+                                    color="secondary"
+                                    style={{ marginBottom: 10 }}
+                                 >
+                                    Видалити з списку перегляду
+                                 </Button>
+                                 <Button
+                                    onClick={() => addMovieToWatched(item)}
+                                    variant="contained"
+                                    color="primary"
+                                 >
+                                    Переглянуто
+                                 </Button>
+                              </div>
+                           ) : (
+                              <Button
+                                 onClick={() => addMovieToWatchlist(item)}
+                                 variant="contained"
+                                 color="primary"
+                              >
+                                 Добавити в список перегляду
+                              </Button>
+                           )}
+                        </div>
                         <div className="content__about">
                            <span className="content__title">
                               {content.name || content.title} (

@@ -46,6 +46,7 @@ function Movies() {
                      title={item.title}
                      date={item.release_date}
                      rating={item.vote_average}
+                     item={item}
                   />
                ))}
          </div>

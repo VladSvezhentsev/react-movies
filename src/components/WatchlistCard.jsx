@@ -1,10 +1,10 @@
 import { Badge } from "@mui/material";
-import { ContentModal, MovieControls } from ".";
+import { MovieControls } from ".";
 import { img_300, unavailable } from "../config/config";
 
-function Card({ id, type, poster, title, date, rating, item, status }) {
+function WatchlistCard({ poster, title, rating, item, status }) {
    return (
-      <ContentModal type={type} id={id} item={item} status={status}>
+      <div className="media">
          <Badge
             badgeContent={rating}
             color={rating >= 7 ? "primary" : "secondary"}
@@ -15,13 +15,9 @@ function Card({ id, type, poster, title, date, rating, item, status }) {
             alt={title}
          />
          <b className="media__title">{title}</b>
-         <span className="media__subtitle">
-            {type === "tv" ? "Серіал" : "Фільм"}
-         </span>
-         <span className="media__subtitle">{date}</span>
          <MovieControls item={item} status={status} />
-      </ContentModal>
+      </div>
    );
 }
 
-export default Card;
+export default WatchlistCard;

@@ -1,20 +1,25 @@
 import { Route, Routes } from "react-router-dom";
 import { Header, Navbar } from "./components";
-import { Trending, Movies, Series, Search } from "./pages";
+import GlobalProvider from "./context/GlobalState";
+import { Trending, Movies, Series, Search, Watchlist, Watched } from "./pages";
 
 function App() {
    return (
       <>
-         <Header />
-         <div className="app">
-            <Routes>
-               <Route path="/" element={<Trending />} />
-               <Route path="/movies" element={<Movies />} />
-               <Route path="/series" element={<Series />} />
-               <Route path="/search" element={<Search />} />
-            </Routes>
-         </div>
-         <Navbar />
+         <GlobalProvider>
+            <Header />
+            <div className="app">
+               <Routes>
+                  <Route path="/" element={<Trending />} />
+                  <Route path="/movies" element={<Movies />} />
+                  <Route path="/series" element={<Series />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/watchlist" element={<Watchlist />} />
+                  <Route path="/watched" element={<Watched />} />
+               </Routes>
+            </div>
+            <Navbar />
+         </GlobalProvider>
       </>
    );
 }

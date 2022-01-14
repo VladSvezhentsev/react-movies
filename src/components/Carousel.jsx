@@ -49,7 +49,7 @@ function Carousel({ type, id }) {
       <AliceCarousel
          items={items}
          responsive={responsive}
-         animationDuration={1000}
+         animationDuration={1500}
          mouseTracking
          infinite
          disableButtonsControls

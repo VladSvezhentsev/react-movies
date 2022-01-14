@@ -46,6 +46,7 @@ function Series() {
                      title={item.name}
                      date={item.first_air_date}
                      rating={item.vote_average}
+                     item={item}
                   />
                ))}
          </div>

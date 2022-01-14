@@ -19,7 +19,7 @@ function Trending() {
    }, [page]);
 
    return (
-      <div>
+      <>
          <h1>Популярне</h1>
          <div className="content">
             {items &&
@@ -32,11 +32,12 @@ function Trending() {
                      title={item.title || item.name}
                      date={item.release_date || item.first_air_date}
                      rating={item.vote_average}
+                     item={item}
                   />
                ))}
          </div>
          <CustomPagination setPage={setPage} />
-      </div>
+      </>
    );
 }
 
