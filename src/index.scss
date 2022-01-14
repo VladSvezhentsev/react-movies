@@ -146,6 +146,13 @@ h1 {
       scrollbar-width: none;
    }
 
+   &__image {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+   }
+
    &__btns {
       display: flex;
       flex-direction: column;
@@ -218,12 +225,6 @@ h1 {
 
 @media (min-width: 835px) {
    .content {
-      &__image {
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         align-items: center;
-      }
       &-modal {
          flex-direction: row;
       }
