@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# React Movies
+React Movies - це сайт про фільми і серіали. Можна прочитати короткий опис фільму та переглянути його трейлер. Також є можливість додати вибраний фільм чи серіал в список перегляду, а потім в список переглянутих. Зроблено на базі API [TMDM](https://www.themoviedb.org).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Спробувати можна [тут](https://vlad-reactmovies.netlify.app).
 
-### Try it out
-https://vlad-reactmovies.netlify.app
+## Стек
+- React (hooks)
+- React Router
+- Axios
+- Material UI
+- Local storage
+
+## Швидкий старт
+```git clone https://github.com/VladSvezhentsev/react-movies.git```
+
+```npm install```
+
+```npm start```
