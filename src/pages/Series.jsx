@@ -13,7 +13,7 @@ function Series() {
 
    const fetchSeries = async () => {
       const { data } = await axios.get(
-         `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=uk-UA&&region=UA&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForURL}`
+         `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForURL}`
       );
 
       setItems(data.results);
@@ -26,7 +26,7 @@ function Series() {
 
    return (
       <div>
-         <h1>Серіали</h1>
+         <h1>TV Series</h1>
          <Genres
             type="tv"
             setPage={setPage}

@@ -8,7 +8,7 @@ function Trending() {
 
    const fetchTrending = async () => {
       const { data } = await axios.get(
-         `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&language=uk-UA&region=UA&page=${page}`
+         `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=${page}`
       );
 
       setItems(data.results);
@@ -20,7 +20,7 @@ function Trending() {
 
    return (
       <>
-         <h1>Популярне</h1>
+         <h1>Trending</h1>
          <div className="content">
             {items &&
                items.map((item) => (

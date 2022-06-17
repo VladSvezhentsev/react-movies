@@ -40,22 +40,22 @@ function Navbar() {
          >
             <BottomNavigationAction
                style={{ color: "#fff" }}
-               label="Популярне"
+               label="Trending"
                icon={<WhatshotIcon />}
             />
             <BottomNavigationAction
                style={{ color: "#fff" }}
-               label="Фільми"
+               label="Movies"
                icon={<MovieIcon />}
             />
             <BottomNavigationAction
                style={{ color: "#fff" }}
-               label="Серіали"
+               label="TV Series"
                icon={<TvIcon />}
             />
             <BottomNavigationAction
                style={{ color: "#fff" }}
-               label="Пошук"
+               label="Search"
                icon={<SearchIcon />}
             />
          </BottomNavigation>

@@ -43,7 +43,7 @@ function ContentModal({ children, type, id, item }) {
 
    const fetchData = async () => {
       const { data } = await axios.get(
-         `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=uk-UA`
+         `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       );
 
       setContent(data);
@@ -51,9 +51,7 @@ function ContentModal({ children, type, id, item }) {
 
    const fetchVideo = async () => {
       const { data } = await axios.get(
-         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
-            process.env.REACT_APP_API_KEY
-         }&language=${"uk - UA" || "en - US"}`
+         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language="en - US"`
       );
 
       setVideo(data.results[0]?.key);
@@ -113,14 +111,14 @@ function ContentModal({ children, type, id, item }) {
                                     color="secondary"
                                     style={{ marginBottom: 10 }}
                                  >
-                                    Видалити з списку перегляду
+                                    Delete from watchlist
                                  </Button>
                                  <Button
                                     onClick={() => addMovieToWatched(item)}
                                     variant="contained"
                                     color="primary"
                                  >
-                                    Переглянуто
+                                    Watched
                                  </Button>
                               </div>
                            ) : (
@@ -129,7 +127,7 @@ function ContentModal({ children, type, id, item }) {
                                  variant="contained"
                                  color="primary"
                               >
-                                 Добавити в список перегляду
+                                 Add to watchlist
                               </Button>
                            )}
                         </div>
@@ -159,7 +157,7 @@ function ContentModal({ children, type, id, item }) {
                               target="_blank"
                               href={`https://www.youtube.com/watch?v=${video}`}
                            >
-                              Дивитись трейлер
+                              Watch trailer
                            </Button>
                         </div>
                      </div>

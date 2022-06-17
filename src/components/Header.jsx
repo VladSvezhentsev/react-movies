@@ -16,10 +16,10 @@ function Header() {
          </Link>
          <div className="header__menu">
             <Link to="/watchlist">
-               <span>Список перегляду</span>
+               <span>Watchlist</span>
             </Link>
             <Link to="/watched">
-               <span>Переглянуто</span>
+               <span>Watched</span>
             </Link>
          </div>
       </header>

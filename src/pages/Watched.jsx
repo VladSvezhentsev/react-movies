@@ -7,7 +7,7 @@ function Watched() {
 
    return (
       <>
-         <h1>Переглянуто</h1>
+         <h1>Watched</h1>
          <div className="content">
             {watched.length ? (
                watched.map((item) => (
@@ -21,7 +21,7 @@ function Watched() {
                   />
                ))
             ) : (
-               <h2>Ваш список порожній</h2>
+               <h2>Your watched list is empty</h2>
             )}
          </div>
       </>

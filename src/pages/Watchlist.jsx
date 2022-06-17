@@ -7,7 +7,7 @@ function Watchlist() {
 
    return (
       <>
-         <h1>Список перегляду</h1>
+         <h1>Watchlist</h1>
          <div className="content">
             {watchlist.length ? (
                watchlist.map((item) => (
@@ -21,7 +21,7 @@ function Watchlist() {
                   />
                ))
             ) : (
-               <h2>Ваш список перегляду порожній</h2>
+               <h2>Your watchlist is empty</h2>
             )}
          </div>
       </>

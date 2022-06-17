@@ -16,7 +16,7 @@ function Card({ id, type, poster, title, date, rating, item, status }) {
          />
          <b className="media__title">{title}</b>
          <span className="media__subtitle">
-            {type === "tv" ? "Серіал" : "Фільм"}
+            {type === "tv" ? "TV Series" : "Movie"}
          </span>
          <span className="media__subtitle">{date}</span>
          <MovieControls item={item} status={status} />

@@ -35,7 +35,7 @@ function Search() {
             type ? "tv" : "movie"
          }?api_key=${
             process.env.REACT_APP_API_KEY
-         }&language=uk-UA&query=${searchText}&page=${page}&include_adult=false`
+         }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
       );
 
       setItems(data.results);
@@ -54,7 +54,7 @@ function Search() {
                <TextField
                   style={{ flex: 1 }}
                   className="search-box"
-                  label="Пошук"
+                  label="Search"
                   variant="filled"
                   onChange={onInputChange}
                />
@@ -76,8 +76,8 @@ function Search() {
                   setPage(1);
                }}
             >
-               <Tab style={{ width: "50%" }} label="Фільми" />
-               <Tab style={{ width: "50%" }} label="Серіали" />
+               <Tab style={{ width: "50%" }} label="Movies" />
+               <Tab style={{ width: "50%" }} label="TV Series" />
             </Tabs>
          </ThemeProvider>
          <div className="content">
