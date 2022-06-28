@@ -6,7 +6,7 @@ function Card({ id, type, poster, title, date, rating, item, status }) {
    return (
       <ContentModal type={type} id={id} item={item} status={status}>
          <Badge
-            badgeContent={rating}
+            badgeContent={rating.toFixed(1)}
             color={rating >= 7 ? "primary" : "secondary"}
          />
          <img
